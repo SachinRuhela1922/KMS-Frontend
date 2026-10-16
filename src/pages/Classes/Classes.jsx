@@ -7,6 +7,31 @@ import { classPath, groupByStage } from '../../lib/classes.js';
 import NotFound from '../NotFound.jsx';
 import styles from './Classes.module.css';
 
+// Extra (static) content + images. Data logic (classes from Admin Panel) is unchanged.
+// Images are placeholders: replace with your own school photos.
+const U = (id, w = 1000) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=70`;
+const hide = (e) => { e.currentTarget.style.display = 'none'; };
+
+const STAGE_IMG = [
+  [/pre|play|nurs|kg|lkg|ukg/i, U('photo-1427504494785-3a9ca7044f45')],
+  [/primary/i, U('photo-1503676260728-1c00da094a0b')],
+  [/middle|upper/i, U('photo-1577896851231-70ef18881754')],
+  [/secondary|senior|high|inter/i, U('photo-1523050854058-8df90110c9f1')],
+];
+const stageImg = (stage = '') => (STAGE_IMG.find(([re]) => re.test(stage)) || [null, U('photo-1509062522246-3755977927d7')])[1];
+
+const WHY = [
+  ['Caring teachers', 'Every child is guided with patience, attention and encouragement.'],
+  ['Smart classrooms', 'Digital tools and clear explanations make learning simple.'],
+  ['Safe campus', 'A disciplined, friendly and well-supervised environment.'],
+  ['Parent partnership', 'Regular tests, report cards and parent-teacher meetings.'],
+];
+const STEPS = [
+  ['Choose the class', 'Pick your child\u2019s class from the list and read its details.'],
+  ['Visit or contact us', 'Meet our teachers and see the campus, or reach us through the Contact page.'],
+  ['Submit the form', 'Fill the admission form and submit the required documents.'],
+];
+
 const Empty = ({ children }) => <p className={styles.empty}>{children}</p>;
 
 function Overview({ c }) {
@@ -111,6 +136,14 @@ const TABS = [
   { id: 'events', label: 'Events', View: Events },
 ];
 
+function Perks() {
+  return (
+    <div className={styles.perks}>
+      {WHY.map(([t, d]) => (<div key={t}><strong>{t}</strong><span>{d}</span></div>))}
+    </div>
+  );
+}
+
 function Details({ c, items }) {
   const { settings } = useContent();
   const [tab, setTab] = useState('overview');
@@ -132,10 +165,12 @@ function Details({ c, items }) {
 
   return (
     <div className={styles.detail}>
-      <div className={styles.banner}>
-        <span className={styles.stage}>{c.stage}</span>
-        <h2>{c.name}</h2>
-        <p>{c.board}{c.medium ? ` · ${c.medium} medium` : ''}</p>
+      <div className={styles.banner} style={{ '--bg': `url('${stageImg(c.stage)}')` }}>
+        <div className={styles.bannerIn}>
+          <span className={styles.stage}>{c.stage}</span>
+          <h2>{c.name}</h2>
+          <p>{c.board}{c.medium ? ` · ${c.medium} medium` : ''}</p>
+        </div>
       </div>
 
       <div className={styles.facts}>
@@ -146,12 +181,14 @@ function Details({ c, items }) {
 
       <div className={styles.tabs} role="tablist">
         {TABS.map((t) => (
-          <button key={t.id} role="tab" aria-selected={tab === t.id} className={`${styles.tab} ${tab === t.id ? styles.tabOn : ''}`} onClick={() => setTab(t.id)}>
+          <button key={t.id} type="button" role="tab" aria-selected={tab === t.id} className={`${styles.tab} ${tab === t.id ? styles.tabOn : ''}`} onClick={() => setTab(t.id)}>
             {t.label}
           </button>
         ))}
       </div>
       <div className={styles.panel} role="tabpanel"><Active c={c} /></div>
+
+      <Perks />
 
       <div className={styles.footerRow}>
         <div className={styles.pn}>
@@ -196,8 +233,14 @@ export default function Classes() {
           <div className={styles.overview}>
             {classes?.admissionNote && <p className={styles.admission}>{classes.admissionNote}</p>}
             {groupByStage(items).map((g) => (
-              <section key={g.stage}>
-                <h3 className={styles.sub}>{g.stage}</h3>
+              <section key={g.stage} className={styles.stageBlock}>
+                <div className={styles.stageHead}>
+                  <img src={stageImg(g.stage)} alt="" loading="lazy" onError={hide} />
+                  <div>
+                    <h3 className={styles.stageTitle}>{g.stage}</h3>
+                    <span>{g.list.length} {g.list.length === 1 ? 'class' : 'classes'}</span>
+                  </div>
+                </div>
                 <div className={styles.grid}>
                   {g.list.map((c) => (
                     <Link to={classPath(c)} className={styles.classCard} key={c.slug}>
@@ -212,6 +255,24 @@ export default function Classes() {
           </div>
         )}
       </div>
+
+      {!current && (
+        <>
+          <section className={styles.why}>
+            <h2>Why learn with us</h2>
+            <Perks />
+          </section>
+          <section className={styles.how}>
+            <h2>How to apply</h2>
+            <ol className={styles.steps}>
+              {STEPS.map(([t, d], k) => (
+                <li key={t}><span>{k + 1}</span><div><strong>{t}</strong><p>{d}</p></div></li>
+              ))}
+            </ol>
+            <Link to="/contact" className={styles.help}>Need help choosing a class? Contact us</Link>
+          </section>
+        </>
+      )}
     </div>
   );
 }

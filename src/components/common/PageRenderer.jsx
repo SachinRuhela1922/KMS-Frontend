@@ -159,8 +159,10 @@ function Block({ block, s }) {
  *  - `id`      : key inside content.pageContent  (ready-made pages)
  *  - `data`    : OR pass the page object directly (pages created in Admin -> New Pages)
  *  - `styles`  : the page's own CSS module (design stays per-page)
+ *  - `before`  : OPTIONAL extra JSX shown between the header and the Admin blocks
+ *  - `after`   : OPTIONAL extra JSX shown after the Admin blocks
  */
-export default function PageRenderer({ id, data, styles: s }) {
+export default function PageRenderer({ id, data, styles: s, before = null, after = null }) {
   const content = useContent();
   const page = data || content.pageContent?.[id] || {};
   usePageTitle(page.seoTitle || page.title);
@@ -180,6 +182,8 @@ export default function PageRenderer({ id, data, styles: s }) {
         </div>
       </section>
 
+      {before}
+
       <section className={s.body}>
         <div className={s.container}>
           {(page.blocks || []).map((block, i) => (
@@ -187,6 +191,8 @@ export default function PageRenderer({ id, data, styles: s }) {
           ))}
         </div>
       </section>
+
+      {after}
     </div>
   );
 }
