@@ -1,0 +1,512 @@
+/* Discover JGU page - ye CSS sirf is page par lagta hai (CSS Module).
+   Dusre pages par iska koi asar nahi hota, isliye yahan freely badlo.
+
+   NOTE: Neeche jo hardcoded text hai (Promise, Features, Journey, Admission, Values)
+   wo "content:" ke andar likha hai. Text badalna ho to wahi quotes ke andar edit karo.
+   Nayi line ke liye \A use hota hai. */
+
+.page {
+  --accent: #b71a34;          /* main colour */
+  --accent-dark: #7f1025;
+  --accent-soft: #fbf3f4;     /* light background */
+  --button: #f9ad31;          /* button colour */
+  --text: #231f20;
+  --muted: #5a5557;
+
+  --dark: #16090d;            /* dark box */
+  --dark-2: #2a1018;          /* dark box (gradient end) */
+  --on-dark: #f5e9eb;
+  --on-dark-muted: #c9aeb4;
+
+  --gutter: clamp(16px, 5vw, 90px);
+  --radius: 22px;
+  --gap: clamp(18px, 2.4vw, 40px);
+
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  color: var(--text);
+}
+
+/* ================= HERO / TOP TITLE BAR ================= */
+.header {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: clamp(80px, 10vw, 170px) 0 clamp(70px, 9vw, 150px);
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(183, 26, 52, 0.55) 0, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(249, 173, 49, 0.35) 0, transparent 45%),
+    linear-gradient(135deg, #12070a 0%, #2a1018 100%);
+}
+.header::before,
+.header::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+.header::before {
+  width: 30vw;
+  height: 30vw;
+  min-width: 220px;
+  min-height: 220px;
+  top: -10vw;
+  left: -8vw;
+  background: radial-gradient(circle at 30% 30%, rgba(183, 26, 52, 0.7), transparent 70%);
+  animation: floatA 10s ease-in-out infinite;
+}
+.header::after {
+  width: 24vw;
+  height: 24vw;
+  min-width: 180px;
+  min-height: 180px;
+  bottom: -10vw;
+  right: -6vw;
+  background: radial-gradient(circle at 70% 30%, rgba(249, 173, 49, 0.6), transparent 70%);
+  animation: floatB 12s ease-in-out infinite;
+}
+
+.headerInner {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+/* ghoomta dashed ring */
+.headerInner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(48vw, 620px);
+  height: min(48vw, 620px);
+  min-width: 280px;
+  min-height: 280px;
+  transform: translate(-50%, -50%);
+  border: 2px dashed rgba(249, 173, 49, 0.35);
+  border-radius: 50%;
+  z-index: -1;
+  animation: spinRing 50s linear infinite;
+}
+/* hardcoded pill: school ka naam */
+.headerInner::after {
+  content: '★  KMS Inter College  •  Play Group to Class 12';
+  display: inline-block;
+  margin-top: clamp(24px, 2.6vw, 44px);
+  padding: 10px 26px;
+  font-size: clamp(12px, 1.05vw, 17px);
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--button);
+  border: 1px solid rgba(249, 173, 49, 0.55);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+  animation: fadeUp 0.9s 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  font-size: clamp(32px, 5.4vw, 88px);
+  color: #fff;
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 6px;
+  width: 120px;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--accent), var(--button), var(--accent));
+  background-size: 200% 100%;
+  animation: growBar 1.2s 0.4s ease both, shimmer 3s linear infinite;
+}
+.intro {
+  max-width: min(1000px, 90%);
+  margin: clamp(20px, 2.2vw, 36px) auto 0;
+  font-size: clamp(16px, 1.5vw, 25px);
+  line-height: 1.7;
+  color: var(--on-dark-muted);
+  animation: fadeUp 0.9s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ================= BODY ================= */
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: var(--gap) var(--gutter) clamp(40px, 6vw, 100px);
+  background:
+    radial-gradient(rgba(183, 26, 52, 0.08) 1.3px, transparent 1.3px) 0 0 / 28px 28px,
+    #fbf5f6;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ---------- Shared dark box look ---------- */
+.body::before,
+.body::after,
+.container::before,
+.container::after,
+.list li,
+.stat {
+  color: var(--on-dark);
+  background:
+    radial-gradient(circle at 100% 0, rgba(183, 26, 52, 0.45) 0, transparent 55%),
+    radial-gradient(circle at 0 100%, rgba(249, 173, 49, 0.18) 0, transparent 50%),
+    linear-gradient(135deg, var(--dark), var(--dark-2));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(22, 9, 13, 0.28);
+}
+
+/* ---------- HARDCODED SECTION 1: Our Promise ---------- */
+.body::before {
+  content: 'OUR PROMISE\A From the first day in Play Group to the Class 12 board exams, every child at KMS Inter College learns, plays and grows in a safe, disciplined and caring environment.\A We build strong academics, good character and confident futures.';
+  white-space: pre-line;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(30px, 4vw, 72px) clamp(22px, 4vw, 80px);
+  text-align: center;
+  font-size: clamp(16px, 1.5vw, 25px);
+  line-height: 1.8;
+  position: relative;
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ---------- HARDCODED SECTION 2: Why choose us (3 columns) ---------- */
+.container::before {
+  content: '🎓  Strong academics from Play Group to Class 12\A 👩‍🏫  Experienced and caring teachers\A 🖥️  Smart classes and modern learning tools\A 🏅  Sports, games and fitness activities\A 🎭  Cultural events, art and music\A 🛡️  Safe, disciplined and friendly campus';
+  white-space: pre-line;
+  columns: 3;
+  column-gap: clamp(24px, 4vw, 70px);
+  column-rule: 1px dashed rgba(249, 173, 49, 0.35);
+  padding: clamp(28px, 3.4vw, 64px) clamp(22px, 3.4vw, 70px);
+  font-size: clamp(15px, 1.3vw, 21px);
+  line-height: 2.4;
+  font-weight: 500;
+  animation: fadeUp 0.9s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ---------- HARDCODED SECTION 3: Learning Journey (4 columns) ---------- */
+.container::after {
+  content: '🌱  Pre-Primary:  Play Group, Nursery, LKG, UKG  —  learning through play and stories\A 📘  Primary:  Class 1 to 5  —  strong basics in reading, writing and maths\A 🔬  Middle:  Class 6 to 8  —  curiosity, science and skills\A 🏆  Secondary and Senior Secondary:  Class 9 to 12  —  board exam preparation and career guidance';
+  white-space: pre-line;
+  columns: 4;
+  column-gap: clamp(24px, 3vw, 56px);
+  column-rule: 1px dashed rgba(249, 173, 49, 0.35);
+  padding: clamp(28px, 3.4vw, 64px) clamp(22px, 3.4vw, 70px);
+  font-size: clamp(14.5px, 1.15vw, 19px);
+  line-height: 1.8;
+  animation: fadeUp 0.9s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* ---------- HARDCODED SECTION 4: Admission call-out ---------- */
+.body::after {
+  content: '✨  ADMISSIONS OPEN  ✨\A Give your child a bright start. Visit KMS Inter College, meet our teachers and see the campus yourself.';
+  white-space: pre-line;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(30px, 4vw, 72px) clamp(22px, 4vw, 80px);
+  text-align: center;
+  font-size: clamp(16px, 1.5vw, 25px);
+  line-height: 1.8;
+  font-weight: 600;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(249, 173, 49, 0.35) 0, transparent 45%),
+    linear-gradient(135deg, var(--accent), var(--accent-dark));
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+/* ---------- HARDCODED SECTION 5: Values strip ---------- */
+.page::after {
+  content: 'DISCIPLINE   •   RESPECT   •   CURIOSITY   •   TEAMWORK   •   INTEGRITY';
+  padding: clamp(16px, 1.8vw, 30px) var(--gutter);
+  text-align: center;
+  font-size: clamp(12px, 1.1vw, 18px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--button);
+  background: var(--dark);
+}
+
+/* ================= REAL CONTENT (Admin Panel se aaya) ================= */
+.heading {
+  position: relative;
+  margin: clamp(10px, 1.6vw, 28px) 0 0;
+  padding-left: clamp(22px, 2.2vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  font-size: clamp(24px, 2.6vw, 44px);
+  color: var(--text);
+}
+.heading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(183, 26, 52, 0.16);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+.heading::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--button));
+  transition: width 0.4s ease;
+}
+.heading:hover::after {
+  width: 170px;
+}
+
+.text {
+  margin: 0;
+  font-size: clamp(16px, 1.3vw, 22px);
+  line-height: 1.9;
+  color: var(--text);
+}
+
+/* bullet points -> dark cards */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(14px, 1.6vw, 26px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  position: relative;
+  padding: clamp(18px, 1.8vw, 30px) clamp(18px, 1.8vw, 28px) clamp(18px, 1.8vw, 30px) clamp(64px, 5.4vw, 86px);
+  font-size: clamp(15.5px, 1.2vw, 20px);
+  line-height: 1.6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.list li::before {
+  content: '✓';
+  position: absolute;
+  left: clamp(16px, 1.5vw, 24px);
+  top: 50%;
+  width: clamp(34px, 3vw, 44px);
+  height: clamp(34px, 3vw, 44px);
+  margin-top: calc(clamp(34px, 3vw, 44px) / -2);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  background: linear-gradient(135deg, var(--button), #ffd48a);
+  transition: transform 0.4s ease;
+}
+.list li:hover {
+  transform: translateY(-6px);
+  border-color: var(--button);
+  box-shadow: 0 24px 48px rgba(183, 26, 52, 0.35);
+}
+.list li:hover::before {
+  transform: rotate(360deg) scale(1.1);
+}
+
+/* numbers -> dark cards */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: clamp(16px, 2vw, 32px);
+  margin: 0;
+}
+.stat {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(30px, 3.2vw, 56px) 18px clamp(24px, 2.6vw, 40px);
+  text-align: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.stat::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--button));
+  opacity: 0.35;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.stat::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--button));
+  transform: scaleX(0.25);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+.stat:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px rgba(183, 26, 52, 0.4);
+}
+.stat:hover::before {
+  transform: scale(2.5);
+  opacity: 0.2;
+}
+.stat:hover::after {
+  transform: scaleX(1);
+}
+.stat strong {
+  position: relative;
+  display: block;
+  font-size: clamp(34px, 3.8vw, 66px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--button);
+}
+.stat span {
+  position: relative;
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(14px, 1.1vw, 18px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: var(--on-dark-muted);
+}
+
+/* button */
+.button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: clamp(13px, 1.1vw, 18px) clamp(30px, 3vw, 54px);
+  font-weight: 700;
+  font-size: clamp(15px, 1.15vw, 19px);
+  color: #000;
+  text-decoration: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--button), #ffc866);
+  box-shadow: 0 8px 22px rgba(249, 173, 49, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3.2s ease-in-out infinite;
+}
+.button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 30px rgba(249, 173, 49, 0.6);
+  color: #000;
+  text-decoration: none;
+}
+
+/* real blocks scroll par reveal (modern browsers) */
+@supports (animation-timeline: view()) {
+  .container > * {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+}
+
+/* ================= KEYFRAMES ================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(46px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(40px, 30px) scale(1.12); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-40px, -28px) scale(1.14); }
+}
+@keyframes spinRing {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.35); opacity: 0.7; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 18px 40px rgba(183, 26, 52, 0.3); }
+  50%      { box-shadow: 0 22px 60px rgba(249, 173, 49, 0.5); }
+}
+@keyframes growBar {
+  from { width: 0; }
+  to   { width: 120px; }
+}
+@keyframes shimmer {
+  to { background-position: 200% 0; }
+}
+@keyframes shine {
+  0%, 60% { left: -80%; }
+  100%    { left: 140%; }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
+  .container::before { columns: 2; }
+  .container::after  { columns: 2; }
+}
+@media (max-width: 640px) {
+  .page { --gutter: 14px; }
+  .container::before,
+  .container::after { columns: 1; line-height: 2; }
+  .list { grid-template-columns: 1fr; }
+  .headerInner::after { letter-spacing: 0.5px; padding: 8px 16px; }
+  .page::after { letter-spacing: 1.5px; }
+}
+
+/* motion pasand nahi (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

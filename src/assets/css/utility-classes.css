@@ -1,0 +1,148 @@
+.text-gray-silver {
+    color: #c0c0c0 !important;
+}
+
+.text-gray-lighter {
+    color: #eeeeee !important;
+}
+
+.text-gray-ccc {
+    color: #ccc !important;
+}
+
+/* Text White Color*/
+
+.text-white {
+    color: #fff !important;
+}
+
+/* -------- Solid Color Background ---------- */
+
+.bg-black {
+    background-color: #000 !important;
+}
+
+/* Bg White Color*/
+
+.bg-white-f1 {
+    background-color: #f1f1f1 !important;
+}
+
+/* -------- Transparent Background Color ---------- */
+
+/* -------- Font Weight ---------- */
+
+.font-weight-600 {
+    font-weight: 600 !important;
+}
+
+.font-weight-700 {
+    font-weight: 700 !important;
+}
+
+.font-weight-800 {
+    font-weight: 800 !important;
+}
+
+/* -------- Font Size ---------- */
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.font-14 {
+    font-size: 14px !important;
+}
+
+.font-16 {
+    font-size: 16px !important;
+}
+
+.font-20 {
+    font-size: 20px !important;
+}
+
+.font-24 {
+    font-size: 24px !important;
+}
+
+.font-25 {
+    font-size: 25px !important;
+}
+
+.font-48 {
+    font-size: 48px !important;
+}
+
+.font-54 {
+    font-size: 3.85714286rem !important;
+}
+
+/* -------- Letter Spacing ---------- */
+
+/* -------- z-index ---------- */
+
+.z-index-1 {
+    z-index: 1 !important;
+}
+
+/* -------- Line Height ---------- */
+
+.line-height-1 {
+    line-height: 1;
+}
+
+.line-height-1 {
+    line-height: 1 !important;
+}
+
+/* -------- Custom Margin Padding ---------- */
+
+/* -------- Border ---------- */
+
+.border-bottom {
+    border-bottom: 1px solid #eeeeee !important;
+}
+
+/* -------- Border Radius ---------- */
+
+/* -------- Position ---------- */
+
+.relative {
+    position: relative !important;
+}
+
+/* -------- Background Image ---------- */
+
+/* -------- Absolute Image Positioning ---------- */
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+/* -------- Responsive Classes ---------- */
+
+/* Small Devices, Tablets */
+
+/* Small Devices, Tablets */
+
+/* Extra Small Devices, Phones */
+
+/* -------- Opening Hourse ---------- */
+
+/* -------- Multi Row Clearfix ---------- */
+
+@media (min-width: 768px) {
+    /* reset previous grid */
+    /* clear first in row for small columns */
+}
+
+@media (min-width: 992px) {
+    /* reset previous grid */
+    /* clear first in row for medium columns */
+}
+
+@media (min-width: 1200px) {
+    /* reset previous grid */
+    /* clear first in row for large columns */
+}

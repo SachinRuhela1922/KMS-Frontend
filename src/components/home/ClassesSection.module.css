@@ -1,0 +1,16 @@
+.section { padding: 64px 0; background: linear-gradient(180deg, #fff 0%, #fbf3f4 100%); }
+.head { text-align: center; max-width: 780px; margin: 0 auto 30px; }
+.head h2 { font-weight: 700; margin: 12px 0 10px; color: #222; }
+.head p { color: #555; font-size: 17px; line-height: 1.7; margin: 0; }
+.badge { display: inline-block; background: #b71a34; color: #fff; padding: 5px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 44px; }
+.card { background: #fff; border-radius: 14px; padding: 22px; border-top: 4px solid #b71a34; box-shadow: 0 6px 20px rgba(0, 0, 0, .07); }
+.card h3 { font-size: 18px; font-weight: 700; color: #b71a34; margin: 0 0 12px; }
+.card ul { list-style: none; margin: 0; padding: 0; }
+.card li + li { border-top: 1px solid #f0e9ea; }
+.card a { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; color: #222; font-weight: 600; text-decoration: none; }
+.card a small { color: #888; font-weight: 400; font-size: 12px; }
+.card a:hover { color: #b71a34; }
+.cta { text-align: center; margin-top: 34px; }
+.btn { display: inline-block; background: #f9ad31; color: #222; font-weight: 700; padding: 13px 30px; border-radius: 8px; text-decoration: none; }
+.btn:hover { background: #b71a34; color: #fff; }

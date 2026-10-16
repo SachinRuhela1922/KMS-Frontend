@@ -1,0 +1,68 @@
+/* ═══ K.M.S theme layer — loaded LAST, so it refines the older styles.
+   Colours: maroon #b71a34 (main) + gold #ffc107 (accent). Change them here / in the :root below. ═══ */
+:root {
+  --kms-red: #b71a34;
+  --kms-red-dark: #8f1228;
+  --kms-gold: #ffc107;
+  --kms-ink: #1f2430;
+  --kms-muted: #5b6270;
+  --kms-soft: #fbf3f4;
+}
+
+body { color: var(--kms-ink); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4, h5, h6 { color: var(--kms-ink); }
+::selection { background: var(--kms-gold); color: #000; }
+a { color: var(--kms-red); transition: color 0.2s; }
+a:hover { color: var(--kms-red-dark); }
+:focus-visible { outline: 3px solid var(--kms-gold); outline-offset: 2px; }
+
+/* custom scrollbar */
+html { scrollbar-color: var(--kms-red) #f3e9eb; scrollbar-width: thin; }
+
+/* ---------- scroll reveal (components/common/Reveal.jsx) ---------- */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); will-change: opacity, transform; }
+.rv.rv-in { opacity: 1; transform: none; }
+
+/* ---------- hero ---------- */
+.hero-media { height: 92vh; min-height: 640px; }
+.hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 28%),
+    linear-gradient(90deg, rgba(110, 10, 28, 0.78) 0%, rgba(110, 10, 28, 0.35) 55%, rgba(0, 0, 0, 0.1) 100%);
+}
+.banner-text h4 { letter-spacing: 2px; color: var(--kms-gold) !important; font-weight: 600; }
+.banner-text h2 { letter-spacing: -1px; }
+.banner-text h4, .banner-text h2, .banner-text p, .banner-text .row { animation: heroUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.banner-text h2 { animation-delay: 0.15s; }
+.banner-text p { animation-delay: 0.35s; }
+.banner-text .row { animation-delay: 0.5s; }
+@keyframes heroUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.banner-text .btn {
+  border-radius: 999px !important;
+  padding: 12px 18px;
+  font-weight: 600;
+  border-width: 2px;
+  transition: transform 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+}
+.banner-text .btn:hover { transform: translateY(-3px); color: var(--kms-ink); background: var(--kms-gold); border-color: var(--kms-gold); }
+.banner-text .btn i { transition: transform 0.25s; }
+.banner-text .btn:hover i { transform: translateX(4px); }
+/* first hero button = solid gold call-to-action */
+.banner-text .col-lg-3:first-child .btn { color: var(--kms-ink); background: var(--kms-gold); border-color: var(--kms-gold); }
+.banner-text .col-lg-3:first-child .btn:hover { color: #fff; background: var(--kms-red); border-color: var(--kms-red); }
+
+/* ---------- misc old components ---------- */
+.return-to-top { border-radius: 50%; box-shadow: 0 8px 20px rgba(183, 26, 52, 0.35); }
+.sticky-apply-now { border-radius: 0 0 10px 10px; font-weight: 700; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); transition: background 0.2s, color 0.2s; }
+.sticky-apply-now:hover { background: var(--kms-red); color: #fff; }
+.site-loader span { border-top-color: var(--kms-red); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .rv { opacity: 1; transform: none; }
+}

@@ -1,0 +1,76 @@
+/* Classes page - CSS applies only here (CSS Module). */
+.page { --accent: #b71a34; --soft: #fbf3f4; --button: #f9ad31; --text: #222; }
+.header { padding: 56px 0 90px; background: linear-gradient(135deg, #8f1227, #b71a34 60%, #d6483f); color: #fff; text-align: center; }
+.inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.badge { display: inline-block; background: rgba(255, 255, 255, .18); padding: 5px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.header h1 { margin: 14px 0 10px; font-size: clamp(30px, 4.5vw, 46px); font-weight: 700; }
+.header p { margin: 0 auto 26px; max-width: 720px; font-size: 17px; line-height: 1.65; opacity: .95; }
+.body { max-width: 1050px; margin: -50px auto 0; padding: 0 20px 70px; position: relative; z-index: 1; }
+
+.overview { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 10px 40px rgba(0, 0, 0, .1); }
+.admission { background: var(--soft); border-left: 4px solid var(--accent); padding: 12px 16px; margin: 0 0 8px; font-weight: 600; }
+.sub { margin: 26px 0 14px; font-size: 19px; font-weight: 700; color: var(--accent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+.classCard { display: flex; flex-direction: column; gap: 4px; padding: 16px; border: 1px solid #eadfe1; border-radius: 12px; text-decoration: none; color: var(--text); transition: all .15s; }
+.classCard strong { font-size: 18px; }
+.classCard span { font-size: 13px; color: #666; }
+.classCard em { font-style: normal; font-size: 13px; color: var(--accent); font-weight: 600; margin-top: 6px; }
+.classCard:hover { border-color: var(--accent); box-shadow: 0 8px 22px rgba(183, 26, 52, .15); transform: translateY(-2px); }
+
+.detail { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, .1); }
+.banner { padding: 28px 30px; background: var(--soft); border-bottom: 1px solid #f0e2e5; }
+.stage { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); }
+.banner h2 { margin: 6px 0 4px; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--text); }
+.banner p { margin: 0; color: #555; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: #eee; border-bottom: 1px solid #eee; }
+.fact { background: #fff; padding: 16px 18px; display: flex; flex-direction: column; gap: 3px; }
+.fact span { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #888; }
+.fact strong { font-size: 16px; color: var(--text); }
+
+.tabs { display: flex; gap: 4px; padding: 14px 20px 0; border-bottom: 2px solid #eee; overflow-x: auto; }
+.tab { flex: none; padding: 11px 18px; border: 0; background: none; font-size: 15px; font-weight: 600; color: #666; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tab:hover { color: var(--accent); }
+.tabOn { color: var(--accent); border-bottom-color: var(--accent); }
+.panel { padding: 26px 30px 12px; min-height: 220px; }
+.lead { font-size: 17px; line-height: 1.8; margin: 0 0 18px; color: var(--text); }
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.ticks li { padding-left: 28px; position: relative; font-weight: 600; }
+.ticks li::before { content: '✓'; position: absolute; left: 0; color: #fff; background: var(--accent); width: 20px; height: 20px; border-radius: 50%; font-size: 12px; line-height: 20px; text-align: center; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.miniCard { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid #eadfe1; border-left: 4px solid var(--button); border-radius: 10px; background: #fff; }
+.miniCard strong { color: var(--text); }
+.miniCard span, .miniCard em { font-size: 14px; color: #666; font-style: normal; }
+.stream { border-left-color: var(--accent); background: var(--soft); }
+.person { flex-direction: row; align-items: center; gap: 14px; }
+.person div { display: flex; flex-direction: column; gap: 2px; }
+.avatar { flex: none; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff !important; font-weight: 700; font-size: 18px !important; display: flex; align-items: center; justify-content: center; }
+
+.tableWrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; min-width: 480px; }
+.table th { background: var(--accent); color: #fff; text-align: left; padding: 12px 14px; font-size: 14px; }
+.table td { padding: 12px 14px; border-bottom: 1px solid #eee; font-size: 15px; }
+.table tr:nth-child(even) td { background: #fdf9f9; }
+.amount { font-weight: 700; color: var(--accent); white-space: nowrap; }
+.note { font-size: 14px; color: #777; margin: 14px 0 0; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+.month { flex: none; width: 130px; font-weight: 700; color: var(--accent); font-size: 14px; }
+.timeline strong { display: block; }
+.timeline p { margin: 2px 0 0; color: #666; font-size: 14px; }
+.empty { color: #888; margin: 0; }
+
+.footerRow { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; padding: 18px 30px 26px; border-top: 1px solid #eee; margin-top: 14px; }
+.pn { display: flex; gap: 10px; }
+.pn a { padding: 9px 16px; border: 1px solid #ddd; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 600; font-size: 14px; }
+.pn a:hover { border-color: var(--accent); color: var(--accent); }
+.apply { background: var(--button); color: #222; font-weight: 700; padding: 12px 24px; border-radius: 8px; text-decoration: none; }
+.apply:hover { background: var(--accent); color: #fff; }
+
+@media (max-width: 600px) {
+  .panel, .banner { padding-left: 18px; padding-right: 18px; }
+  .footerRow { padding-left: 18px; padding-right: 18px; }
+  .timeline li { flex-direction: column; gap: 4px; }
+  .month { width: auto; }
+}

@@ -1,0 +1,24 @@
+.picker { position: relative; max-width: 520px; margin: 0 auto; text-align: left; z-index: 20; }
+.trigger {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 20px; background: #fff; border: 2px solid #b71a34; border-radius: 12px; cursor: pointer;
+  font-size: 18px; font-weight: 600; color: #222; box-shadow: 0 6px 18px rgba(183, 26, 52, .12);
+}
+.trigger:focus-visible { outline: 3px solid #f9ad31; outline-offset: 2px; }
+.placeholder { color: #777; font-weight: 500; }
+.value { color: #b71a34; }
+.chev { width: 10px; height: 10px; border-right: 3px solid #b71a34; border-bottom: 3px solid #b71a34; transform: rotate(45deg); transition: transform .2s; margin: -4px 4px 0 0; }
+.chevOpen { transform: rotate(-135deg); margin-top: 4px; }
+.panel {
+  position: absolute; left: 0; right: 0; top: calc(100% + 8px); background: #fff; border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .22); padding: 8px 18px 14px; max-height: 70vh; overflow-y: auto;
+}
+.group { padding-top: 12px; }
+.groupTitle { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #b71a34; margin-bottom: 8px; }
+.options { display: flex; flex-wrap: wrap; gap: 8px; }
+.option {
+  padding: 8px 16px; border-radius: 999px; border: 1px solid #e3dcdd; background: #faf7f7; cursor: pointer;
+  font-size: 15px; font-weight: 600; color: #333; transition: all .15s;
+}
+.option:hover, .option:focus-visible { background: #b71a34; border-color: #b71a34; color: #fff; outline: none; }
+.optionActive { background: #b71a34; border-color: #b71a34; color: #fff; }

@@ -1,0 +1,71 @@
+/* Hero media: poster image first, video fades in over it when it is really playing */
+.hero-media {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #1d1d1d;
+  z-index: 0;
+  isolation: isolate; /* video/poster z-index stay INSIDE the hero media and can never cover the text */
+}
+.hero-media .hero-poster,
+.hero-media video.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+.hero-media .hero-poster {
+  z-index: 0;
+}
+.hero-media video.hero-video {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-media video.hero-video.is-playing {
+  opacity: 1;
+}
+
+/* Hero text layer: always above the poster + video (fixes the text disappearing when the video starts) */
+.slider-content {
+  z-index: 2;
+}
+.slider-content .owl-carousel,
+.slider-content .owl-stage-outer,
+.slider-content .owl-item {
+  position: relative;
+  z-index: 2;
+}
+.slider-content .banner-text h2,
+.slider-content .banner-text h4,
+.slider-content .banner-text p {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+/* full-page loader while the content JSON is loading */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  z-index: 9999;
+}
+.site-loader span {
+  width: 42px;
+  height: 42px;
+  border: 4px solid #eee;
+  border-top-color: #b71a34;
+  border-radius: 50%;
+  animation: site-spin 0.8s linear infinite;
+}
+@keyframes site-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

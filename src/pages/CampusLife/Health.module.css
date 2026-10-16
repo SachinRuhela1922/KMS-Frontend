@@ -1,0 +1,121 @@
+/* Health page - ye CSS sirf is page par lagta hai (CSS Module).
+   Dusre pages par iska koi asar nahi hota, isliye yahan freely badlo. */
+
+.page {
+  --accent: #b71a34; /* main colour */
+  --accent-soft: #fbf3f4; /* light background */
+  --button: #f9ad31; /* button colour */
+  --text: #222;
+}
+
+/* ---------- Top title bar ---------- */
+.header {
+  padding: 56px 0 40px;
+  background: #f1f1f1;
+  text-align: center;
+  /* Background image chahiye to:
+     background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('/path/image.jpg') center/cover no-repeat;
+     (aur title / intro ka color white kar do) */
+}
+.headerInner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.title {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  color: var(--accent);
+}
+.intro {
+  margin: 14px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ---------- Content area ---------- */
+.body {
+  padding: 40px 0 70px;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.heading {
+  margin: 28px 0 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.text {
+  margin: 0 0 18px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* bullet points */
+.list {
+  margin: 0 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+  font-size: 17px;
+  line-height: 1.6;
+  border-bottom: 1px solid #f0f0f0;
+}
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 17px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* numbers */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin: 26px 0;
+}
+.stat {
+  background: var(--accent-soft);
+  border-top: 3px solid var(--accent);
+  padding: 18px 12px;
+  text-align: center;
+}
+.stat strong {
+  display: block;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--accent);
+}
+.stat span {
+  font-size: 14px;
+  color: #444;
+}
+
+/* button */
+.button {
+  display: inline-block;
+  padding: 10px 28px;
+  background: var(--button);
+  color: #000;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.button:hover {
+  filter: brightness(0.95);
+  color: #000;
+  text-decoration: none;
+}

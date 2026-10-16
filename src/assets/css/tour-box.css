@@ -1,0 +1,213 @@
+/* ===========================
+   Main White Container
+=========================== */
+
+        .tour-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+
+        /* Left Divider */
+
+        .border-right-custom {
+            border-right: 1px solid #b71a34;
+        }
+
+        /* ===========================
+   Schedule Button
+=========================== */
+
+        .tour-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1px solid #b71a34;
+            border-radius: 40px;
+            color: #b71a34;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .tour-btn:hover {
+            background: #b71a34;
+            color: #fff;
+        }
+
+        /* ===========================
+   Divider Text
+=========================== */
+
+        .scan-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b71a34;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .scan-divider::before,
+        .scan-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+            margin: 0 10px;
+        }
+
+        /* ===========================
+   QR Card
+=========================== */
+
+        .qr-card {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid #eaeaea;
+            text-align: center;
+        }
+
+        /* Title */
+
+        .qr-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #b71a34;
+            margin-bottom: 18px;
+        }
+
+        /* QR Image Perfect Fit */
+
+        .qr-img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 18px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .qr-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Text */
+
+        .qr-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===========================
+   Right Side Content Box
+=========================== */
+
+        .tour-content {
+            background: linear-gradient(180deg, #f8f8f8, #f8f8f8);
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+        }
+
+        /* Left Pink Border */
+
+        .tour-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #b71a34, #b0003a);
+            border-radius: 20px 0 0 20px;
+        }
+
+        /* Bottom subtle line */
+
+        .tour-content::after {
+            content: "";
+            position: absolute;
+            bottom: 25px;
+            left: 35px;
+            right: 35px;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        /* Label */
+
+        .tour-label {
+            color: #b71a34;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Paragraph */
+
+        .tour-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #000;
+            margin: 0;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===========================
+   Responsive
+=========================== */
+
+        @media (max-width: 991px) {
+            .tour-box {
+                padding: 20px;
+            }
+            .border-right-custom {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+            .tour-content {
+                padding: 25px;
+                margin-top: 10px;
+            }
+            .tour-content::after {
+                left: 25px;
+                right: 25px;
+                bottom: 20px;
+            }
+            .tour-content p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+            .tour-label {
+                font-size: 14px;
+            }
+            .tour-btn {
+                font-size: 14px;
+                padding: 8px 20px;
+            }
+            .qr-title {
+                font-size: 16px;
+            }
+            .qr-img {
+                max-width: 180px;
+            }
+            .qr-text {
+                font-size: 13px;
+            }
+        }
